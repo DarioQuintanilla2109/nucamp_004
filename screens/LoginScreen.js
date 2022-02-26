@@ -140,15 +140,10 @@ const RegisterTab = () => {
     };
 
     const getImageFromGallery = async () => {
-        const cameraPermission =
-            await ImagePicker.requestCameraPermissionsAsync();
         const mediaLibraryPermission =
             await ImagePicker.requestMediaLibraryPermissionsAsync();
 
-        if (
-            cameraPermission.status === 'granted' &&
-            mediaLibraryPermission.status === 'granted'
-        ) {
+        if (mediaLibraryPermission.status === 'granted') {
             const capturedImage = await ImagePicker.launchImageLibraryAsync({
                 allowsEditing: true,
                 aspect: [1, 1]
